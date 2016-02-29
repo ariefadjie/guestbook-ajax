@@ -18,16 +18,8 @@ Route::get('/guestbook', function(){
 	$guestbooks	= Guestbook::paginate(5);
 	return view('guestbook', compact('guestbooks'));
 });
-Route::post('/guestbook', function(){
-	Guestbook::create(Request::all());
-	return redirect('/guestbook');
-});
-Route::get('/user/{name}', function($name){
-	return 'This User Page. Your Username is '.$name;
-});
 
-
-// Laravel API
+// Laravel API for AJAX
 Route::get('/api/guestbooks', function(){
 	$guestbooks = Guestbook::all();
 	return Response::json($guestbooks);
