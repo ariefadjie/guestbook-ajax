@@ -12,7 +12,7 @@ use App\Guestbook;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('guestbook');
 });
 Route::get('/guestbook', function(){
 	$guestbooks	= Guestbook::paginate(5);
